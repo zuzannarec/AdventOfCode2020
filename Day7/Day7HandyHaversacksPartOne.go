@@ -28,8 +28,8 @@ func readRules(inputFilePath string) map[string][]string {
 			if bagSplit[0] == "no" {
 				continue
 			}
-			bagName := strings.Split(bagSplit[1], " bag")[0]
-			adjMap[bagName] = append(adjMap[bagName], outerBag)
+			innerBag := strings.Split(bagSplit[1], " bag")[0]
+			adjMap[innerBag] = append(adjMap[innerBag], outerBag)
 		}
 	}
 	return adjMap
