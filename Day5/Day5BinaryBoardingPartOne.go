@@ -1,16 +1,10 @@
 package day5
 
 import (
+	utils "AdventOfCode/Utils"
 	"bufio"
 	"os"
 )
-
-func max(x, y int) int {
-	if x < y {
-		return y
-	}
-	return x
-}
 
 const rowCount = 128
 const colCount = 8
@@ -53,7 +47,7 @@ func binaryBoardingPartOne(inputFilePath string) int {
 	for scanner.Scan() {
 		line := scanner.Text()
 		minRowIdx, minColIdx := calcInterval(line)
-		maxSeat = max(maxSeat, (minRowIdx-1)*8+minColIdx-1)
+		maxSeat = utils.MaxInt(maxSeat, (minRowIdx-1)*8+minColIdx-1)
 	}
 	return maxSeat
 }
