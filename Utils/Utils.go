@@ -1,5 +1,10 @@
 package utils
 
+import (
+	"log"
+	"strconv"
+)
+
 func MaxInt(one int, two int) int {
 	if one >= two {
 		return one
@@ -30,4 +35,12 @@ func MinPair(one Pair, two Pair) Pair {
 		return one
 	}
 	return two
+}
+
+func ReadNumber(line string) int {
+	val, err := strconv.Atoi(line)
+	if err != nil {
+		log.Fatalf("Incorrect input %s", line)
+	}
+	return val
 }

@@ -1,19 +1,10 @@
 package day9
 
 import (
+	utils "AdventOfCode/Utils"
 	"bufio"
-	"log"
 	"os"
-	"strconv"
 )
-
-func readNumber(line string) int {
-	val, err := strconv.Atoi(line)
-	if err != nil {
-		log.Fatalf("Incorrect input %s", line)
-	}
-	return val
-}
 
 func encodingErrorPartOne(inputFilePath string, preambleLen int) int {
 	file, err := os.Open(inputFilePath)
@@ -30,14 +21,14 @@ func encodingErrorPartOne(inputFilePath string, preambleLen int) int {
 	for i := 0; i < preambleLen; i++ {
 		scanner.Scan()
 		line := scanner.Text()
-		val := readNumber(line)
+		val := utils.ReadNumber(line)
 		preamble = append(preamble, val)
 		preambleSet[val] = true
 	}
 	for scanner.Scan() {
 		correct := false
 		line := scanner.Text()
-		val := readNumber(line)
+		val := utils.ReadNumber(line)
 		for _, el := range preamble {
 			diff := val - el
 			if diff == el {

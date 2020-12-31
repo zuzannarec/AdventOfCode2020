@@ -22,7 +22,7 @@ func encodingErrorPartTwo(inputFilePath string, preambleLen int) int {
 
 	for scanner.Scan() {
 		line := scanner.Text()
-		val := readNumber(line)
+		val := utils.ReadNumber(line)
 		numbers = append(numbers, val)
 	}
 	diff := invalidNumber
